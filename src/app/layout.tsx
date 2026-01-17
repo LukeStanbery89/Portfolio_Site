@@ -50,9 +50,16 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    {/* Skip to main content link for accessibility */}
+                    <a
+                        href="#main-content"
+                        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-4 focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    >
+                        Skip to main content
+                    </a>
                     <div className="flex min-h-screen flex-col">
                         <Header />
-                        <main className="flex-1">{children}</main>
+                        <main id="main-content" className="flex-1">{children}</main>
                         <Footer />
                     </div>
                 </ThemeProvider>
