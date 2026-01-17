@@ -1,0 +1,55 @@
+---
+title: "Getting Started with Next.js 15"
+description: "Learn how to build modern web applications with Next.js 15 and the App Router"
+date: "2024-01-20"
+tags: ["Next.js", "React", "TypeScript", "Tutorial"]
+author: "Luke Stanbery"
+image: "/images/blog/getting-started.jpg"
+published: true
+---
+
+# Getting Started with Next.js 15
+
+Next.js 15 brings exciting new features and improvements to the React framework. In this post, we'll explore the App Router and how to build modern web applications.
+
+## Why Next.js?
+
+Next.js is a powerful React framework that provides:
+
+- Server-side rendering (SSR)
+- Static site generation (SSG)
+- API routes
+- File-based routing
+- Built-in optimization
+
+## Setting Up Your First Project
+
+To create a new Next.js project, run:
+
+```bash
+npx create-next-app@latest my-app
+```
+
+This will set up a new Next.js project with TypeScript, ESLint, and Tailwind CSS.
+
+## App Router
+
+The App Router is the new routing system in Next.js 13+. It uses the `app` directory and provides better performance and developer experience.
+
+### Creating Pages
+
+To create a new page, simply add a `page.tsx` file in the `app` directory:
+
+```typescript
+export default function Home() {
+    return (
+        <div>
+            <h1>Welcome to Next.js!</h1>
+        </div>
+    );
+}
+```
+
+## Conclusion
+
+Next.js 15 makes it easier than ever to build fast, modern web applications. Give it a try for your next project!

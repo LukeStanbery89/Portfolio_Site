@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Luke Stanbery - Portfolio Website
+
+A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS v4.
+
+## Features
+
+- Modern, responsive design with dark mode support
+- Mobile-first approach with Tailwind CSS
+- Beautiful UI components with shadcn/ui
+- MDX-powered blog with syntax highlighting
+- Static site generation for optimal performance
+- Vercel Analytics integration
+- SEO optimized with metadata and Open Graph tags
+- Accessible and WCAG compliant
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Components**: shadcn/ui (Radix UI + Tailwind)
+- **Content**: MDX for blog posts and projects
+- **Icons**: Lucide React
+- **Analytics**: Vercel Analytics
+- **Deployment**: Vercel
+
+## Project Structure
+
+```
+├── content/                 # MDX content files
+│   ├── blog/               # Blog post MDX files
+│   └── projects/           # Project showcase MDX files
+├── public/                 # Static assets
+│   └── images/            # Images for blog and projects
+├── src/
+│   ├── app/               # Next.js App Router pages
+│   │   ├── about/         # About page
+│   │   ├── blog/          # Blog pages
+│   │   ├── projects/      # Project pages
+│   │   ├── layout.tsx     # Root layout
+│   │   └── page.tsx       # Homepage
+│   ├── components/        # React components
+│   │   ├── layout/        # Header, Footer
+│   │   └── ui/            # shadcn/ui components
+│   ├── lib/               # Utility functions
+│   │   └── mdx.ts         # MDX parsing utilities
+│   └── types/             # TypeScript type definitions
+├── next.config.ts         # Next.js configuration
+├── tailwind.config.ts     # Tailwind CSS configuration
+└── tsconfig.json          # TypeScript configuration
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 20.9.0 or higher
+- npm or yarn
+
+### Installation
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Adding Content
 
-## Learn More
+### Blog Posts
 
-To learn more about Next.js, take a look at the following resources:
+Create a new `.mdx` file in `content/blog/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```mdx
+---
+title: "Your Post Title"
+description: "A brief description"
+date: "2024-01-20"
+tags: ["Next.js", "React"]
+author: "Luke Stanbery"
+published: true
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Your Post Title
 
-## Deploy on Vercel
+Your content here...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Projects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a new `.mdx` file in `content/projects/`:
+
+```mdx
+---
+title: "Project Name"
+description: "Project description"
+date: "2024-01-15"
+tags: ["Next.js", "TypeScript"]
+image: "/images/projects/project-name.jpg"
+demoUrl: "https://example.com"
+githubUrl: "https://github.com/username/project"
+featured: true
+---
+
+# Project Name
+
+Your project details here...
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Deployment
+
+The site is configured for deployment on Vercel:
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Vercel will automatically detect Next.js and deploy
+
+### Environment Variables
+
+If needed, add these in your Vercel dashboard:
+
+- `NEXT_PUBLIC_SITE_URL` - Your production URL
+
+## Customization
+
+### Update Personal Information
+
+1. **Site Metadata**: Edit `src/app/layout.tsx`
+2. **About Page**: Edit `src/app/about/page.tsx`
+3. **Homepage Hero**: Edit `src/app/page.tsx`
+4. **Social Links**: Edit `src/components/layout/Footer.tsx`
+
+### Styling
+
+- **Theme Colors**: Edit CSS variables in `src/app/globals.css`
+- **Component Styles**: Modify shadcn/ui components in `src/components/ui/`
+
+## Performance
+
+- Lighthouse Score: 90+ target
+- Static generation for all routes
+- Optimized images with next/image
+- Font optimization with next/font
+- Automatic code splitting
+
+## License
+
+MIT License
