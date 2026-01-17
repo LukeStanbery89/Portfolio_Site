@@ -10,8 +10,30 @@ export default async function Home() {
     const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
     const recentPosts = (await getAllBlogPosts()).slice(0, 3);
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://127.0.0.1:3000";
+
+    // JSON-LD structured data for Person schema
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Luke Stanbery",
+        url: baseUrl,
+        jobTitle: "Software Engineer",
+        description: "Software Engineer building modern web applications with Next.js, React, and TypeScript",
+        sameAs: [
+            "https://github.com/lukestanbery",
+            "https://linkedin.com/in/lukestanbery",
+            "https://twitter.com/lukestanbery",
+        ],
+    };
+
     return (
-        <div className="container py-12 md:py-24">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <div className="container py-12 md:py-24">
             {/* Hero Section */}
             <section className="mb-16 md:mb-24">
                 <div className="mx-auto max-w-3xl text-center">
@@ -113,6 +135,7 @@ export default async function Home() {
                     </div>
                 </section>
             )}
-        </div>
+            </div>
+        </>
     );
 }

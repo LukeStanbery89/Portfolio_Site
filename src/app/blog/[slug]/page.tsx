@@ -49,8 +49,30 @@ export default async function BlogPostPage({ params }: Props) {
         notFound();
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://127.0.0.1:3000";
+
+    // JSON-LD structured data for Article schema
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        author: {
+            "@type": "Person",
+            name: post.author,
+        },
+        url: `${baseUrl}/blog/${slug}`,
+        keywords: post.tags.join(", "),
+    };
+
     return (
-        <div className="container py-12 md:py-24">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <div className="container py-12 md:py-24">
             <div className="mx-auto max-w-4xl">
                 {/* Back Button */}
                 <Button asChild variant="ghost" className="mb-8">
@@ -101,6 +123,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <MDXRemote source={post.content} />
                 </article>
             </div>
-        </div>
+            </div>
+        </>
     );
 }
