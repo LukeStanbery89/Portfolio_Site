@@ -1,29 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Mail, Twitter, ArrowUp } from "lucide-react";
+import { Github, Linkedin, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socialLinks = [
     {
         name: "GitHub",
-        href: "https://github.com/lukestanbery",
+        href: "https://github.com/LukeStanbery89",
         icon: Github,
     },
     {
         name: "LinkedIn",
-        href: "https://linkedin.com/in/lukestanbery",
+        href: "https://www.linkedin.com/in/luke-s-7b75a128/",
         icon: Linkedin,
-    },
-    {
-        name: "Twitter",
-        href: "https://twitter.com/lukestanbery",
-        icon: Twitter,
-    },
-    {
-        name: "Email",
-        href: "mailto:hello@lukestanbery.com",
-        icon: Mail,
     },
 ];
 
